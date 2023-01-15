@@ -1,3 +1,5 @@
+// gcc -o kbd kbd.c -lwiringPi
+// sudo ./kbd
 #include <stdio.h>
 #include <wiringPi.h>
 
