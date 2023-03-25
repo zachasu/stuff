@@ -17,9 +17,10 @@ class comp_display:
     self.button1 = tk.Button(frame2, text='+', width=1, height=1)
     self.button2 = tk.Button(frame2, text='-', width=1, height=1)
 
-  def setup (self, position, function, function2)
-    self.button1.config(command=lambda:function)
-    self.button2.config(command=lambda:function2)
+#when calling this function write it as, lambda:function(var, vars)
+  def setup (self, position, function, function2):
+    self.button1.config(command=function)
+    self.button2.config(command=function2)
     self.frame1.grid(row=position, column=position)
     self.frame1.grid_propagate(False)
     self.frame2.grid(row=position, column=position+1)
@@ -34,7 +35,7 @@ sta_display.grid(row=0, column=0)
 sta_display.grid_propagate(False)
 
 sta_button = tk.Frame(window)
-sta_button.configure(bg=gray1, pady=5, padx=5, height=10) 
+sta_button.configure(bg=gray1, pady=5, padx=5, height=88) 
 sta_button.grid(row=0, column=1)
 sta_button.grid_propagate(False)
 
