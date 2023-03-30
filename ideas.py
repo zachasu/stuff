@@ -21,16 +21,6 @@ class ability:
   def __init__ (self, effect, type="", speed=0, range=0, damage=0):
     self.effect = effect
 
-warcry = ability("Perk: Gain +2 STR")
-
-bearded_axe = weapon('bearded axe', 'melee', 6, 1, 7, warcry)
-
-fur_and_leathers = armor('Fur and Leathers', 3, 3)
-
-player1_equipment = equipment(bearded_axe, fur_and_leathers)
-
-print(player1_equipment.weapon.fart)
-
 #Autofill Entry Box
 import tkinter as tk
 

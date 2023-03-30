@@ -11,16 +11,16 @@ service = discovery.build('sheets', 'v4', credentials=credentials)
 sheet = service.spreadsheets()
 
 def sendUpdate(range_, values):
-	update = sheet.values().update(spreadsheetId=spreadsheet_id,
-                                       range=range_,
-				       valueInputOption='USER_ENTERED',
-				       body={'values': values}).execute()
-	print("update sent of range", range_, "and values", values)
+  update = sheet.values().update(spreadsheetId=spreadsheet_id,
+	range=range_,
+	valueInputOption='USER_ENTERED',
+	body={'values': values}).execute()
+  print("update sent of range", range_, "and values", values)
 
 def getValues(range_):
-	request = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_).execute()
-	values = request.get("values", [])
-	return values
+  request = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_).execute()
+  values = request.get("values", [])
+  return values
 
 #sendUpdate('A1', [[null,2],[3,4]])
 #print(getValues('A1:B2')[0:2])
