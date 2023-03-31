@@ -15,15 +15,42 @@ def sendUpdate(range_, values):
 	range=range_,
 	valueInputOption='USER_ENTERED',
 	body={'values': values}).execute()
-  print("update sent of range", range_, "and values", values)
+
+def getValuelist(range_):
+	request = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_).execute()
+	values = request.get("values", [])
+	valuelist = []
+	for i in range(len(values)):
+		valuelist.append(values[i])
+	return valuelist
 
 def getValues(range_):
-  request = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_).execute()
-  values = request.get("values", [])
-  return values
+	request = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_).execute()
+	values = request.get("values", [])
+	return values
 
-#sendUpdate('A1', [[null,2],[3,4]])
-#print(getValues('A1:B2')[0:2])
-#sendUpdate('A2', [[5]])
-#print(getValues('A1:B2')[0:2])
-#print(getValues('A1:B2')[0][0], "is a", type(getValues('A1:B2')[0][0]))
+#I NEED TO STORE ALL VALUES IN LISTS TO MAKE UPLOADING THEM EASIER
+
+samplestatlist = ["statement", 5, 8, "word"]
+othersamplelist = ["cool word", 2, 1, "thing"]
+
+class testclass:
+	def __init__ (self, name, argument, number, word):
+		self.name=name
+		self.argument=argument
+		self.number=number
+		self.word=word
+
+sendUpdate('A1', [samplestatlist])
+sendUpdate('A2', [othersamplelist])
+allvalues = getValues('A1:D')
+row1 = allvalues[0]
+
+print(allvalues)
+
+aclass = testclass(row1[0],row1[1],row1[2],row1[3])
+for i in range(len(row1)):
+	print(row1[i])
+
+print(aclass.name)
+
