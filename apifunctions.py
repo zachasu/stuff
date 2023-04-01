@@ -41,16 +41,16 @@ class testclass:
 		self.number=number
 		self.word=word
 
-sendUpdate('A1', [samplestatlist])
-sendUpdate('A2', [othersamplelist])
-allvalues = getValues('A1:D')
-row1 = allvalues[0]
+#sendUpdate('A1', [samplestatlist])
+#sendUpdate('A2', [othersamplelist])
+#allvalues = getValues('A1:D')
+#row1 = allvalues[0]
 
-print(allvalues)
+#print(allvalues)
 
-aclass = testclass(row1[0],row1[1],row1[2],row1[3])
-for i in range(len(row1)):
-	print(row1[i])
+#aclass = testclass(row1[0],row1[1],row1[2],row1[3])
+#for i in range(len(row1)):
+#	print(row1[i])
 
-print(aclass.name)
+#print(aclass.name)
 
