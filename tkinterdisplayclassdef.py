@@ -56,8 +56,8 @@ class Equipmentdisplay:
 			self.label1=tk.Label(self.frame, text=equipment.spd, width=3)
 			self.label2=tk.Label(self.frame, text=equipment.rnge, width=3)
 			self.label3=tk.Label(self.frame, text=equipment.atk, width=3)
-			if len(equipment.effect) > 0:
-				self.effect=tk.Label(self.frame, text=equipment.effect, wraplength=220)
+			if len(equipment.desc) > 0:
+				self.effect=tk.Label(self.frame, text=equipment.desc, wraplength=220)
 				self.effect.grid(row=1, column=0, columnspan=3, sticky="W")
 			self.entrybox.grid(row=0, column=0, columnspan=3, sticky="W")
 			self.tag1.grid(row=1, column=0)
@@ -78,8 +78,8 @@ class Equipmentdisplay:
 			self.label1=tk.Label(self.frame, text=equipment.prot, width=3)
 			self.label2=tk.Label(self.frame, text=equipment.guard, width=3)
 			self.label3=tk.Label(self.frame, text=equipment.mov, width=3)
-			if len(equipment.effect) > 0:
-				self.effect=tk.Label(self.frame, text=equipment.effect, wraplength=220)
+			if len(equipment.desc) > 0:
+				self.effect=tk.Label(self.frame, text=equipment.desc, wraplength=220)
 				self.effect.grid(row=1, column=0, columnspan=3, sticky="W")
 			self.entrybox.grid(row=0, column=0, columnspan=3, sticky="W")
 			self.tag1.grid(row=1, column=0)
@@ -94,10 +94,28 @@ class Equipmentdisplay:
 			self.frame.grid(row=row_, column=column_)
 			self.entrybox=tk.Entry(self.frame)
 			self.entrybox.insert(0, equipment.name)
-			self.effect=tk.Label(self.frame, text=equipment.effect, wraplength=220)
+			self.effect=tk.Label(self.frame, text=equipment.desc, wraplength=220)
 			self.entrybox.grid(row=0, column=0, columnspan=3, sticky="W")
 			self.effect.grid(row=1, column=0, columnspan=3, sticky="W")
 
 		else:
 			print(isinstance(self.equipment, Weapon))
 			print(type(self.equipment))
+
+class Inventorydisplay:
+	def __init__(self, root, row_, column_, item, item_num):
+		self.root=root
+		self.row_=row_
+		self.column_=column_
+		self.item=item
+		self.frame=tk.Frame(self.root, padx=5, pady=5)
+		self.frame.grid(row=row_, column=column_, sticky="NW")
+		self.nameentry=tk.Entry(self.frame)
+		self.numentry=tk.Entry(self.frame, width=3)
+		self.nameentry.grid(row=0, column=0)
+		self.numentry.grid(row=0, column=1)
+		if item != '':
+			self.nameentry.insert(0, item.name)
+			self.numentry.insert(0, item_num)
+			self.itemdesc=tk.Label(self.frame, text="Effect: " + item.desc, wraplength=200)
+			self.itemdesc.grid(row=1, column=0, columnspan=2, sticky="NW")

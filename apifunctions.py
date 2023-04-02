@@ -41,7 +41,7 @@ class testclass:
 		self.number=number
 		self.word=word
 
-#sendUpdate('A1', [samplestatlist])
+#sendUpdate('A9', [samplestatlist])
 #sendUpdate('A2', [othersamplelist])
 #allvalues = getValues('A1:D')
 #row1 = allvalues[0]

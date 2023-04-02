@@ -1,26 +1,3 @@
-#Equipment Class Nesting Structure
-class equipment:
-  def __init__ (self, weapon, armor):
-    self.weapon = weapon
-    self.armor = armor
-
-class weapon:
-  def __init__ (self, name, type, speed, range, damage, ability1=None, ability2=None, effect="", statch=[]):
-    self.type = type
-    self.speed = speed
-    self.range = range
-    self.damage = damage
-    self.fart = 0
-
-class armor:
-  def __init__ (self, name, protection, mobility):
-    self.protection = protection
-    self.mobility = mobility
-
-class ability:
-  def __init__ (self, effect, type="", speed=0, range=0, damage=0):
-    self.effect = effect
-
 #Autofill Entry Box
 import tkinter as tk
 
@@ -43,6 +20,7 @@ button.grid(row=1, column=0)
 
 entry.bind("<KeyRelease>", lambda event: on_keyrelease(names))
 
+#Open a new window
 def open_window():
     new_window = tk.Toplevel(root)
     new_window.title("New Window")
